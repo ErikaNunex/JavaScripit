@@ -1,12 +1,15 @@
-let listadeTarefas = []
-
 function atualizarQuantidade(){
     document.getElementById('numeros').innerHTML = listadeTarefas.length;
 }
 
 function listarTarefas(){
-    let conteudo = listadeTarefas.sort().map(function(tarefa){
-        return `<div><input type="checkbox">${tarefa}</div>`
+    let conteudo = buscar().map(function(tarefa){
+        return `<div><input type="checkbox">${tarefa.titulo}
+        <span class="badge 
+        ${tarefa.prioridade === 'baixa'&& 'bg-primary'} 
+        ${tarefa.prioridade === 'Media'&& 'bg-warning'}
+        ${tarefa.prioridade === 'Alta'&& 'bg-danger'}"
+        >${tarefa.prioridade}</span></div>`
     })
 
     document.getElementById('tarefas').innerHTML= conteudo.join('');
@@ -24,10 +27,13 @@ function addTarefa(){
         alert('essa tarefa já existe');
         return;
     }
-    listadeTarefas.push(titulo);
+    salvar(titulo, inputPrioridade.value);
 
     document.getElementById('inputNovaTarefa').value = "";
 
     atualizarQuantidade();
-    listarTarefas();
+    listarTarefas(); 
 } 
+
+// vai acontecer assim oque o usoario entrar no site
+listarTarefas()
