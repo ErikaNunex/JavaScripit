@@ -1,15 +1,15 @@
 
-function salvar(titulo,prioridade){
-    let dados = buscar();
+// function salvar(titulo,prioridade){
+//     let dados = buscar();
 
-    dados.push({
-        titulo: titulo,
-        prioridade:prioridade,
+//     dados.push({
+//         titulo: titulo,
+//         prioridade:prioridade,
 
-    })
-    localStorage.setItem('tarefas', JSON.stringify(dados))
-}
+//     })
+//     localStorage.setItem('tarefas', JSON.stringify(dados))
+// }
 
-function buscar(){
-    return JSON.parse(localStorage.getItem('tarefas') || '[]');
-}
+// function buscar(){
+//     return JSON.parse(localStorage.getItem('tarefas') || '[]');
+// }
