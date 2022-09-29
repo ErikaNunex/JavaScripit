@@ -13,12 +13,12 @@
     <form action="">
 
         <label for="regiao">Região</label>
-        <select id="regiao" class="form-control mb-3">
+        <select id="regiao" onchange="pegarEstado()" class="form-control mb-3">
             <option>--Selecione--</option>
         </select>
         
         <label for="estado">Estado</label>
-        <select id="estado" class="form-control mb-3">
+        <select id="estado" onchange="pegarCidade()" class="form-control mb-3">
             <option>--Selecione--</option>
         </select>
     
@@ -30,4 +30,4 @@
 
     <script src="eventos.js"></script>
 </body>
-</html>
+</html> 
