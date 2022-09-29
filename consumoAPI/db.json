@@ -1,0 +1,34 @@
+{
+  "compras": [
+    {
+      "id": 2,
+      "item": "feijão",
+      "quantidade": 5
+    },
+    {
+      "id": 3,
+      "item": "farofa",
+      "quantidade": 5
+    },
+    {
+      "id": 4,
+      "item": "batata",
+      "quantidade": 5
+    },
+    {
+      "item": "ypioca",
+      "quantidade": "5",
+      "id": 6
+    },
+    {
+      "item": "chumbinho",
+      "id": 7,
+      "quantidade": "5"
+    },
+    {
+      "item": "corda",
+      "quantidade": "2",
+      "id": 8
+    }
+  ]
+}
