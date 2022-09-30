@@ -1,3 +1,39 @@
+const API_URL = 'http://localhost:8000'
+
+
+
+function buscarParaEditar(id){
+    fetch(API_URL+'/compras/'+id)
+        .then(resposta => resposta.json())
+        .then(itens =>{
+            inputEditarId.value = itens.id;
+            inputEditarItem.value = itens.item;
+            inputEditarQuantidade.value = itens.quantidade;
+        });
+
+}
+
+function editar(){
+    console.log(2)
+    event.preventDefault();
+    
+    let dados = {
+        item:inputEditarItem.value,
+        quantidade:inputEditarQuantidade.value,
+    };
+    fetch(API_URL+'/compras/'+inputEditarId.value,{
+        method: 'PATCH',
+        body: JSON.stringify(dados),
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+        .then(resposta => resposta.json())
+        .then(() => atualizar());
+    let x =document.querySelector('[data-bs-dismiss="offcanvas"]');
+    x.dispatchEvent(new Event('click'));
+}
+
 function inserir(){
     event.preventDefault();
     
@@ -6,7 +42,7 @@ function inserir(){
         quantidade: parseInt(quantidade.value),
     };
 
-    fetch('http://localhost:8000/compras', {
+    fetch(API_URL+'/compras', {
        method: 'POST',
        body:JSON.stringify(dados),
        headers: {
@@ -18,15 +54,12 @@ function inserir(){
     formADD.resert();
 }
 
-
-
-
 async function excluir(id){
    let resposta = confirm('voce tem certeza?')
    if(resposta !== true){
     return;
    }
-   await fetch('http://localhost:8000/compras/'+id,{
+   await fetch(API_URL+'/compras/'+id,{
         method: 'DELETE'
     });
     atualizar()
@@ -36,7 +69,7 @@ async function excluir(id){
 
 function atualizar(){
     tabela_compras.innerHTML = '';
-    fetch("http://localhost:8000/compras")
+    fetch(API_URL+'/compras')
     .then(function(resposta){
         return resposta.json();
     })
@@ -50,10 +83,8 @@ function atualizar(){
                 <td>${cadaItem.item}</td>
                 <td>${cadaItem.quantidade}</td>
                 <td>
-                <button class="btn btn-warning btn-sm">Editar</button> 
-                </td>
-                <td>
-                <button class="btn btn-danger" onclick=excluir(${cadaItem.id})>Excluir</button>
+                <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasEditar" onclick="buscarParaEditar(${cadaItem.id})" class="btn btn-warning btn-sm">Editar</button>
+                <button class="btn btn-danger" onclick=excluir(${cadaItem.id})>Excluir</button> 
                 </td>
             </tr>`
 
@@ -63,7 +94,3 @@ function atualizar(){
     })
 }
 atualizar()
-
-function editar(){
-    fetch
-}
