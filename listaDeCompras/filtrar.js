@@ -17,4 +17,4 @@ function filtrar(){
             linhas[posicao].style.display = 'none';
         }
     }
-}
+} 

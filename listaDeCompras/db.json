@@ -1,39 +1,14 @@
 {
   "compras": [
     {
-      "id": 2,
-      "item": "feijão",
-      "quantidade": "3"
-    },
-    {
-      "id": 4, 
-      "item": "batata",
-      "quantidade": 5
-    },
-    {
-      "item": "chumbinho",
-      "id": 7,
-      "quantidade": "5"
-    },
-    {
       "item": "corda",
       "quantidade": "2",
       "id": 8
     },
     {
-      "item": "arroz",
-      "quantidade": 6,
-      "id": 9
-    },
-    {
       "item": "cebola",
       "quantidade": "5",
       "id": 12
-    },
-    {
-      "item": "paçoca",
-      "quantidade": 5,
-      "id": 13
     }
   ]
 }

@@ -2,15 +2,12 @@ const API_URL = 'http://localhost:8000'
 
 function marcarTodos(){
     let todos = document.querySelectorAll('[data-check="acao"]');
-
-    todos.forEach((cadaCheck)=>{
-        cadaCheck.checked = true;
-    });
-    if(todos === true){
-        cadaCheck.checked = false;
-    }
+    todos.forEach((cadaCheck) =>{
+        cadaCheck.checked = checkAll.checked;
+    })
+    acionarButaoExcluir()
 }
-
+ 
 
 function buscarParaEditar(id){
     fetch(API_URL+'/compras/'+id)
@@ -89,7 +86,7 @@ function atualizar(){
         {
             tabela_compras.innerHTML+= `
             <tr>
-                <td><input data-check="acao" type="checkbox"></td>
+                <td><input onclick="acionarButaoExcluir()" value=${cadaItem.id} data-check="acao" type="checkbox"></td>
                 <td>${cadaItem.id}</td>
                 <td>${cadaItem.item}</td>
                 <td>${cadaItem.quantidade}</td>
